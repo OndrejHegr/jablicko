@@ -60,7 +60,7 @@
                 const wrapper = document.getElementById('content-wrapper');
 
                 wrapper.innerHTML = '';
-                wrapper.textContent = '';
+                //  wrapper.textContent = '';
 
                 const jsonString = JSON.stringify(msg);
                 const jsonArray = JSON.parse(jsonString);
@@ -75,19 +75,22 @@
                     newDiv.style.left = `${divData.left}px`;
                     newDiv.style.width = `${divData.width}px`;
                     newDiv.style.height = `${divData.height}px`;
-                    newDiv.textContent = divData.value;
-                    newDiv.style.fontFamily = "serif";
+                    newDiv.style.fontStyle = divData.style;
+                    newDiv.style.fontWeight = divData.weight;
                     newDiv.style.fontSize = `${divData.size}px`;
-                    newDiv.style.fontWeight = 'bold';
+                    newDiv.style.fontFamily = divData.family;
+                    newDiv.style.color = divData.color;
+                    newDiv.style.textAlign = divData.align;
+                    newDiv.innerHTML = divData.value;
 
                     wrapper.appendChild(newDiv);
                 }
 
                 // po definované době vymaž wrapper div = titulky samy zmizí
-                setTimeout(() => {
+                /*setTimeout(() => {
                     wrapper.innerHTML = '';
                     console.log('cleared after 10 seconds')
-                }, 10000);
+                }, 10000);*/
             },
             () => {
                 console.log("Connected");
